@@ -6,23 +6,68 @@ A ruby command-line utility for basic VMware vSphere management using [RbVmomi](
 Usage
 =====
 
-_vsphere-helper_
-* getHost/setHost - get/set current vSphere host
-* getPort/setPort - get/set current vSphere port
-* getUser/setUser - get/set current vSphere user
-* getPass/setPass - get/set current vSphere password
+Each set command has a corresponding get command.
 
-_vSphere actions_
-* listVM - list vms
-* findVM - find a particular vm
+**vsphere-helper**
 
-_virtual machine actions_
-* power on/off
-* take snapshot
-* revert to most recent snapshot
-* goto to particular snapshot
+set current vSphere host
 
-_virtual machine information_
-* power status
-* list snapshots
-* IP address
+```setHost [hostname]```
+
+set current vSphere port
+
+```setPort [portnum]```
+
+set current vSphere user
+
+```setUser [username]```
+
+set current vSphere password
+
+```setPass [password]```
+
+**vSphere actions**
+
+list vms for current vSphere host
+
+```listVM```
+
+find a particular vm on current vSphere host
+
+```findVM [vm name]```
+
+**virtual machine actions**
+
+power on a vm
+
+```powerOn [vm dns name]```
+
+power off a vm
+
+```powerOff [vm dns name]```
+
+take snapshot
+
+```snapshot [vm dns name] [title] [details]```
+
+revert to most recent snapshot
+
+```revert [vm dns name]```
+
+goto to particular snapshot
+
+```goto [vm dns name] [snapshot #]```
+
+**virtual machine information**
+
+get the power status
+
+```status [vm dns name]```
+
+list snapshots
+
+```listSnapshots [vm dns name]```
+
+get the IP address
+
+```getIP  [vm dns name]```
