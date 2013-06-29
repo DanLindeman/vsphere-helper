@@ -30,7 +30,7 @@ set current vSphere password
 
 list vms for current vSphere host
 
-```listVM```
+```listVM ```
 
 find a particular vm on current vSphere host
 
