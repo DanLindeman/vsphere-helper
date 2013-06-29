@@ -6,8 +6,19 @@ A ruby command-line utility for basic VMware vSphere management using [RbVmomi](
 Usage
 =====
 
+_vsphere-helper_
+* set current vSphere host
+* get current vSphere host
+* set current vSphere port
+* get current vSphere port
+* set current vSphere user
+* get current vSphere user
+* set current vSphere password
+* set use SSL
+* get use SSL
+
 _vSphere actions_
-* list vms
+* list vms for current vSphere server
 * 
 
 _virtual machine actions_
