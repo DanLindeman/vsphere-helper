@@ -7,22 +7,23 @@ Usage
 =====
 
 _vsphere-helper_
-* set current vSphere host
-* get current vSphere host
-* set current vSphere port
-* get current vSphere port
-* set current vSphere user
-* get current vSphere user
+* get/set current vSphere host
+* get/set current vSphere port
+* get/set current vSphere user
 * set current vSphere password
-* set use SSL
-* get use SSL
+* get/set SSL use
 
 _vSphere actions_
-* list vms for current vSphere server
-* 
+* list vms
+* search vms
 
 _virtual machine actions_
-* power on
-* power off
+* power on/off
+* take snapshot
 * revert to most recent snapshot
-* revert to particular snapshot
+* goto to particular snapshot
+
+_virtual machine information_
+* power status
+* list snapshots
+* IP address
