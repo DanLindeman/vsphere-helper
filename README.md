@@ -7,15 +7,14 @@ Usage
 =====
 
 _vsphere-helper_
-* get/set current vSphere host
-* get/set current vSphere port
-* get/set current vSphere user
-* set current vSphere password
-* get/set SSL use
+* getHost/setHost - get/set current vSphere host
+* getPort/setPort - get/set current vSphere port
+* getUser/setUser - get/set current vSphere user
+* getPass/setPass - get/set current vSphere password
 
 _vSphere actions_
-* list vms
-* search vms
+* listVM - list vms
+* findVM - find a particular vm
 
 _virtual machine actions_
 * power on/off
