@@ -58,6 +58,10 @@ goto to particular snapshot
 
 ```goto [vm dns name] [snapshot #]```
 
+delete a particular snapshot
+
+```delete [vm dns name] [snapshot #]```
+
 **virtual machine information**
 
 get the power status
