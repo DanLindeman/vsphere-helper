@@ -51,7 +51,6 @@ end
 
 def get_variable(variable_name)
   if vhelprc_exists?()
-    found = false
     File.open(vhelprc_path()).each_line do |line|
       if line.include?(variable_name)
         puts line.split(/=/)[1]
