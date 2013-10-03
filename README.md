@@ -6,7 +6,7 @@ A ruby command-line utility for basic VMware vSphere management using [RbVmomi](
 Usage
 =====
 
-**vSphere actions**
+**vSphere information**
 
 list vms for current vSphere host
 
@@ -15,6 +15,20 @@ list vms for current vSphere host
 find a particular vm on current vSphere host
 
 ```findVM [vm name]```
+
+**virtual machine information**
+
+get the power status
+
+```status [vm dns name]```
+
+list snapshots
+
+```listSnapshots [vm dns name]```
+
+get the IP address
+
+```getIP  [vm dns name]```
 
 **virtual machine actions**
 
@@ -41,17 +55,3 @@ goto to particular snapshot
 delete a particular snapshot
 
 ```delete [vm dns name] [snapshot #]```
-
-**virtual machine information**
-
-get the power status
-
-```status [vm dns name]```
-
-list snapshots
-
-```listSnapshots [vm dns name]```
-
-get the IP address
-
-```getIP  [vm dns name]```
