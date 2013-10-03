@@ -6,26 +6,6 @@ A ruby command-line utility for basic VMware vSphere management using [RbVmomi](
 Usage
 =====
 
-Each set command has a corresponding get command.
-
-**vsphere-helper**
-
-set current vSphere host
-
-```setHost [hostname]```
-
-set current vSphere port
-
-```setPort [portnum]```
-
-set current vSphere user
-
-```setUser [username]```
-
-set current vSphere password
-
-```setPass [password]```
-
 **vSphere actions**
 
 list vms for current vSphere host
