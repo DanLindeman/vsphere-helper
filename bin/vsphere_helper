@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'vsphere_helper'
+
+VsphereHelper.execute_vsphere_helper_command(ARGV)
