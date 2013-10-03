@@ -1,4 +1,3 @@
-require './vhelprc.rb' 
 # Environmental variable names
 HOST = 'VSPHERE_HOST'
 PORT = 'VSPHERE_PORT'
