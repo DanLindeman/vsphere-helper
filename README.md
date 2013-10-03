@@ -10,11 +10,11 @@ Usage
 
 list vms for current vSphere host
 
-```listVM ```
+```list_vms ```
 
 find a particular vm on current vSphere host
 
-```findVM [vm name]```
+```find_vm [vm name]```
 
 **virtual machine information**
 
@@ -24,21 +24,21 @@ get the power status
 
 list snapshots
 
-```listSnapshots [vm dns name]```
+```list_snapshots [vm dns name]```
 
 get the IP address
 
-```getIP  [vm dns name]```
+```get_ip  [vm dns name]```
 
 **virtual machine actions**
 
 power on a vm
 
-```powerOn [vm dns name]```
+```power_on [vm dns name]```
 
 power off a vm
 
-```powerOff [vm dns name]```
+```power_off [vm dns name]```
 
 take snapshot
 
