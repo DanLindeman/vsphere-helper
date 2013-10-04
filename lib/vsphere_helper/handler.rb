@@ -1,11 +1,33 @@
 project_root = File.dirname(File.absolute_path(__FILE__))
 Dir.glob(project_root + '/*') {|file| require file}
 
-def valid_commands
+def zero_argument_commands
   [
-    'list_vms', 'find_vm', 'status', 'list_snapshots', 'get_ip',
-    'power_on', 'power_off', 'revert', 'goto', 'delete', 'snapshot'
+    'list_vms'
   ]
+end
+
+def one_argument_commands
+  [ 
+    'find_vm', 'status', 'list_snapshots', 'get_ip',
+    'power_on', 'power_off', 'revert'
+  ]
+end
+
+def two_argument_commands
+  [ 
+    'goto', 'delete'
+  ]
+end
+
+def three_argument_commands
+  [
+    'snapshot'
+  ]
+end
+
+def valid_commands
+  zero_argument_commands + one_argument_commands + two_argument_commands + three_argument_commands
 end
 
 def handle(command, arguments)
