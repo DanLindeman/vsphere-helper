@@ -14,7 +14,7 @@ def get_host
 end
 
 def prompt_for_host
-  get_host.length > 0 ? get_host : prompt_for_variable "vSphere hostname"
+  get_host.length > 0 ? get_host : prompt_for_variable("vSphere hostname")
 end
 
 def set_port(portnum)
@@ -26,7 +26,7 @@ def get_port
 end
 
 def prompt_for_port
-  get_port.length > 0 ? get_port : prompt_for_variable "vSphere port number"
+  get_port.length > 0 ? get_port : prompt_for_variable("vSphere port number")
 end
 
 def set_user(username)
@@ -38,11 +38,11 @@ def get_user
 end
 
 def prompt_for_user
-  get_user.length > 0 ? get_user : prompt_for_variable "vSphere username"
+  get_user.length > 0 ? get_user : prompt_for_variable("vSphere username")
 end
 
 def set_pass(password)
-  set_variable(PASS, encrypted_password)
+  set_variable(PASS, password)
 end
 
 def get_pass
@@ -50,14 +50,14 @@ def get_pass
 end
 
 def prompt_for_pass
-  get_pass.length > 0 ? get_pass : prompt_for_variable "vSphere password"
+  get_pass.length > 0 ? get_pass : prompt_for_variable("vSphere password")
 end
 
-def get_vsphere_config
-  prompt_for_host
-  prompt_for_port
-  prompt_for_user
-  prompt_for_pass
+def configure
+  set_host prompt_for_host
+  set_port prompt_for_port
+  set_user prompt_for_user
+  set_pass prompt_for_pass
   puts get_host
   puts get_port
   puts get_user
@@ -77,9 +77,9 @@ def prompt_for_variable(variable_name)
   value = ""
 
   while value.length < 1
-    puts "Please provide the #{variable_name}:"
+    print "Please provide the #{variable_name}: "
     STDOUT.flush  
-    value = gets.chomp
+    value = $stdin.gets.chomp
   end
 
   value
