@@ -55,13 +55,9 @@ end
 
 def configure
   set_host prompt_for_host
-  set_port prompt_for_port
+  # set_port prompt_for_port
   set_user prompt_for_user
   set_pass prompt_for_pass
-  puts get_host
-  puts get_port
-  puts get_user
-  puts get_pass
 end
 
 private

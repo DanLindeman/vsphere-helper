@@ -34,7 +34,7 @@ def handle(command, arguments)
   if valid_commands.include? command
     if correct_number_of_arguments(command, arguments.length)
       configure
-      send(command, arguments)
+      arguments.length > 0 ? send(command, arguments) : send(command)
     else
       send("#{command}_usage")
     end
