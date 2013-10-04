@@ -1,20 +1,14 @@
-project_root = File.dirname(File.absolute_path(__FILE__))
-Dir.glob(project_root + '/*') {|file| require file}
-
 require 'rbvmomi'
 
 def list_vms
-  puts get_host
-  puts get_user
-  puts get_pass
-  vim = RbVmomi::VIM.connect host: get_host, user: get_user, password: get_pass, insecure: "true"
-  data_center = vim.serviceInstance.find_datacenter
+  connection = connect
+  data_center = connection.serviceInstance.find_datacenter
+  recursive_list_vms data_center.vmFolder
+end
 
-  data_center.vmFolder.childEntity.grep(RbVmomi::VIM::VirtualMachine).find do |x| 
-    puts x.name
-    # puts x.summary.config.memorySizeMB
-    # puts x.summary.config.numCpu
-    # puts x.summary.config.numEthernetCards
-    # puts x.summary.config.numVirtualDisks
+def recursive_list_vms(folder)
+  folder.children.each do |child|
+    puts child.name if child.class == RbVmomi::VIM::VirtualMachine
+    recursive_list_vms child if child.class == RbVmomi::VIM::Folder
   end
 end
