@@ -46,7 +46,7 @@ end
 def correct_number_of_arguments(command, length)
   case command
   when *zero_argument_commands
-    return true
+    return length == 0
   when *one_argument_commands
     return length == 1
   when *two_argument_commands
