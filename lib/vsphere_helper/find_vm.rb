@@ -11,7 +11,7 @@ end
 def recursive_find_vm(folder, name)
   found = []
   folder.children.each do |child|
-    if ((child.class == RbVmomi::VIM::VirtualMachine) && (child.name.include? name))
+    if matches(child, name)
       found << child
     elsif child.class == RbVmomi::VIM::Folder
       found << recursive_find_vm(child,name)
@@ -19,4 +19,10 @@ def recursive_find_vm(folder, name)
   end
 
   found.flatten
+end
+
+def matches(child, name)
+  is_vm = child.class == RbVmomi::VIM::VirtualMachine
+  name_matches = ((name == "*") || (child.name.include? name))
+  return is_vm && name_matches
 end

@@ -10,11 +10,11 @@ end
 desc "find a particular vm on current vSphere host"
 task :find_vm, [:vm_name] do |task, args|
   vm_name = args[:vm_name].to_s
-  puts `#{RAKE_ROOT}/bin/vsphere_helper find_vm #{vm_name}`
+  puts `#{RAKE_ROOT}/bin/vsphere_helper find_vm "#{vm_name}"`
 end
 
 desc "get the power status of a particular vm"
 task :status, [:vm_name] do |task, args|
   vm_name = args[:vm_name].to_s
-  puts `#{RAKE_ROOT}/bin/vsphere_helper status #{vm_name}`
+  puts `#{RAKE_ROOT}/bin/vsphere_helper status "#{vm_name}"`
 end
