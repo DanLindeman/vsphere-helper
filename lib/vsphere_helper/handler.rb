@@ -45,15 +45,13 @@ end
 
 def correct_number_of_arguments(command, length)
   case command
-  when 'list_vms'
+  when *zero_argument_commands
     return true
-  when 'find_vm', 'status', 'list_snapshots', 'get_ip'
+  when *one_argument_commands
     return length == 1
-  when 'power_on', 'power_off', 'revert'
-    return length == 1
-  when 'goto', 'delete'
+  when *two_argument_commands
     return length == 2
-  when 'snapshot'
+  when *three_argument_commands
     return length == 3
   end
 end
