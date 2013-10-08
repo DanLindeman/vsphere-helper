@@ -9,8 +9,8 @@ end
 
 def one_argument_commands
   [ 
-    'find_vm', 'status', 'list_snapshots', 'get_ip',
-    'power_on', 'power_off', 'revert'
+    'find_vm', 'find_exact_vm', 'status', 'list_snapshots',
+    'get_ip', 'power_on', 'power_off', 'revert'
   ]
 end
 
