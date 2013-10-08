@@ -4,8 +4,7 @@ def list_snapshots(name)
   name = name.first
   connection = connect
   data_center = connection.serviceInstance.find_datacenter
-  vms_found = recursive_find_vm(data_center.vmFolder,name)
-  return if vms_found.nil?
+  vms_found = recursive_find_vm(data_center.vmFolder,name) or return
   vms_found.each do |vm|
     puts
     puts "#{vm.name}:"
@@ -21,9 +20,9 @@ def list_snapshots(name)
 end
 
 def recursive_list_snapshots(snapshot, level)
-  tabs = ""
-  level.times { tabs = tabs + "\t" }
-  puts "#{tabs}#{snapshot.name}"
+  spaces = ""
+  level.times { spaces = spaces + "  " }
+  puts "#{spaces}#{snapshot.name}"
   children = snapshot.childSnapshotList
   children.each { |child| recursive_list_snapshots(child, level + 1) }
 end
