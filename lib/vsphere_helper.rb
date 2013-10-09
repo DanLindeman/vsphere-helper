@@ -5,6 +5,7 @@ class VsphereHelper
       puts "Usage: vsphere_helper [command] [argument(s)]"
     else
       command = argv.shift
+      puts "vspherehelper: #{argv.length}"
       handle(command, argv)
     end
   end
