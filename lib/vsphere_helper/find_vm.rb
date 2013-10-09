@@ -5,7 +5,7 @@ def find_vm(name, exact = false)
   connection = connect
   data_center = connection.serviceInstance.find_datacenter
   vms_found = recursive_find_vm(data_center.vmFolder, name, exact)
-  vms_found.each { |vm| puts vm.name }
+  (vms_found.length > 0) ? (vms_found.each { |vm| puts vm.name }) : (puts "No vm found with name matching <#{name}>.")
 end
 
 def recursive_find_vm(folder, name, exact = false)

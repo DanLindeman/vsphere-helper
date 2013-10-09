@@ -4,7 +4,13 @@ def list_snapshots(name)
   name = name.first
   connection = connect
   data_center = connection.serviceInstance.find_datacenter
-  vms_found = recursive_find_vm(data_center.vmFolder,name) or return
+  vms_found = recursive_find_vm(data_center.vmFolder, name, true)
+
+  if vms_found.length == 0
+    puts "No vms found with name matching <#{name}>"
+    return
+  end
+
   vms_found.each do |vm|
     puts
     puts "#{vm.name}:"
