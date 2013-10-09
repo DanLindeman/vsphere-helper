@@ -4,31 +4,23 @@ def list_snapshots(name)
   name = name.first
   connection = connect
   data_center = connection.serviceInstance.find_datacenter
-  vms_found = recursive_find_vm(data_center.vmFolder, name, true)
-
-  if vms_found.length == 0
-    puts "No vms found with name matching <#{name}>"
-    return
-  end
-
-  vms_found.each do |vm|
-    puts
-    puts "#{vm.name}:"
-    (top_level_snapshots = vm.snapshot.rootSnapshotList) unless vm.nil? || vm.snapshot.nil?
-    if top_level_snapshots.nil?
-      puts "No snapshots."
-    else
-      top_level_snapshots.each do |top_level_snapshot|
-        recursive_list_snapshots(top_level_snapshot, 1)
-      end
-    end
+  vm = recursive_find_vm(data_center.vmFolder, name, true).first or die("No vm found with name matching <#{name}>.")
+  puts "#{vm.name}:"
+  top_level_snapshots = vm.snapshot.rootSnapshotList or die("No snapshots.")
+  top_level_snapshots.each do |top_level_snapshot|
+    recursive_list_snapshots(top_level_snapshot, 1)
   end
 end
 
+$snap_num = 0
+
 def recursive_list_snapshots(snapshot, level)
-  spaces = ""
-  level.times { spaces = spaces + "  " }
-  puts "#{spaces}#{snapshot.name}"
+  snapshots = [snapshot]
+  dots = ""
+  level.times { dots = dots + ".." }
+  puts "#{two_digit_format($snap_num)}#{dots}#{snapshot.name}"
+  $snap_num += 1
   children = snapshot.childSnapshotList
-  children.each { |child| recursive_list_snapshots(child, level + 1) }
+  children.each { |child| snapshots << recursive_list_snapshots(child, level + 1) }
+  snapshots.flatten
 end
